@@ -1,0 +1,118 @@
+doctype html
+
+html(lang="en")
+head
+	title Individual Article Analytics
+	script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+	script(src="https://www.gstatic.com/charts/loader.js")
+	link(rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+	
+	script(src="http://code.jquery.com/ui/1.11.4/jquery-ui.js")
+	script(src="/js/individual.js")
+	script(src="/js/overall.js")
+	
+	link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity
+		|="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+	
+body
+	div(class='container text-right')
+		form(action='logout' method='POST')
+			button.small(type='submit' class="btn btn-dark") Log Out
+	
+	div.discription(class='container')
+		div(class="row")
+			div(class="col-xl-12")
+				h1(class="text-center") Welcome to the Wikipdia Analytics
+		
+		
+	//first part
+	div(class='container')
+		div(class="row my-1")
+			div(class="col-md-12")
+				h3 Overall Analytics
+		
+		div(class="row my-1")
+			div(class="col-md-6 input-group mb-3")
+				div(class="input-group-prepend")
+					span(class="input-group-text") The top numbers
+					input#topNumber(type="search" class="form-control" placeholder="Enter the number")
+					button#set(type='button' class="btn btn-secondary") Set
+				
+		div#overallInformation
+			
+		div#overallGraphs(class='container')
+			div#changeBarLine(class="btn-group" role="group")
+				button#overallBar(type='button' class="btn btn-secondary") Bar Chart
+				button#overallLine(type='button' class="btn btn-secondary") Line Chart
+				
+			div#overallBarLine
+			
+			div#pieInfo(class="card bg-light mb-3")
+				div(class="card-body")
+					p The graph shows the revision number distribution by user type,
+						| in which #{userNum} number of users are taken into consideration for this analysis.
+						| From the pie chart, it is clear that the revisions were made mostly by #{oneType}
+						| users that cover for #{onePer} percent, followed by #{twoType} users with #{twoPer} percent.
+						| The #{threeType} users stands at #{threePer} percent, which is larger than  revisions
+						| made by #{fourType} users (#{fourPer} percent).
+			
+			div#overallPie
+			
+	//second part		
+	div(class='container')
+		div(class="row my-1")
+			div(class="col-md-12")
+				h3 Individual Article Analytics
+
+
+		div(class="row my-1")
+			div(class="form-group col-md-6")
+				label(for="articles") Choose an article:
+			
+				select#articles(class="form-control")
+					each item in revision
+						option(id=item._id,value=item._id+","+item.numOfEdits)= item._id + "(" + item.numOfEdits + ")"
+		
+	
+			div#yearFilter(class="form-group col-md-6")
+				label(for="yearFrom") Year filter selection:
+				div#fromTo(class="input-group")
+					input#yearFrom(type="search" class="form-control" placeholder="From Year")
+					input#yearTo(type="search" class="form-control" placeholder="To Year")
+					button#filter(type='button' class="btn btn-secondary") Filter
+	
+		div#ttable(class="row my-1")
+			div(class="btn-group col-md-6" role="group")
+				button#inforTable(class="btn btn-secondary") Information Table
+				button#pie(class="btn btn-secondary") Pie Chart		
+				button#bar1(class="btn btn-secondary") Bar Chart 1
+				button#bar2(class="btn btn-secondary") Bar Chart 2
+			
+	
+
+		div#information
+	
+	
+	
+	
+	
+	
+		
+	//third part	
+
+	div(class='container mt-5')
+		div(class="row my-1")
+			div(class="col-md-12")
+				h3 Author Analytics
+	
+		div(class="row my-1")
+			div(class="form-group col-md-4")
+				label(for="authorPart") Search an author:
+				div(class="input-group")
+					input#authorName(type="search" class="form-control" placeholder="Author Name")
+					button#searchAuthor(type='button' class="btn btn-secondary") Search
+	
+	div#authorInfo
+	
+	div#showTimestamps
+	

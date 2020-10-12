@@ -1,0 +1,54 @@
+doctype html
+
+html(lang="en")
+head
+	title Sign In
+	link(rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+	link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity
+		|="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+
+body
+	div.discription(class='container')
+		div(class="row")
+			div(class="col-xl-12")
+				h1(class="text-center") Sign Up Here
+	div(class='container')
+		form(method='POST' action='signup')
+			div
+				label(for='fname') First Name
+
+			div(class='text-center')
+				input(type='text' id='fname' class="form-control" placeholder="Enter Your First Name" name="fname" required)
+
+			div
+				label(for='lname') Last Name
+
+			div(class='text-center')
+				input(type='text' id='lname' class="form-control" placeholder="Enter Your Last Name" name="lname" required)
+
+			div
+				label(for='uname') Username (Email)
+
+			div(class='text-center')
+				input(type='text' id='uname' class="form-control" placeholder="Enter Username" name="uname" required)
+
+			div
+				label(for='password') Password
+
+			div(class='text-center')
+				input(type='password' id='password' class="form-control" placeholder="Enter Password" name="psw" required)
+
+			div
+				label(for='resetquestion') Reset Password Question
+
+			div(class='text-center')
+				input(type='text' id='resetquestion' class="form-control" placeholder="Enter the Question" name="resetq" required)
+
+			div
+				label(for='resetanswer') Reset Password Question's Answer
+
+			div(class='text-center')
+				input(type='text' id='resetanswer' class="form-control" placeholder="Enter the Answer" name="reseta" required)
+
+			div(class='text-center')
+				button(type='submit' class="btn btn-block btn-primary btn-lg") Sign in

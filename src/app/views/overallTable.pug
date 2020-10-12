@@ -1,0 +1,57 @@
+doctype html
+
+html(lang="en")
+head
+	title Overall Table
+	link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity
+		|="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+body
+	div(class='container')
+		div(class="row mb-4")
+			table(class="table table-bordered table-hover table-sm")
+				tr
+					th(rowspan=number+1)
+						| The top #{number} articles with the highest number of revisions and 
+						| their number of revisions are:
+				each val in HighestRevResult
+					tr
+						td #{val._id} with #{val.countRivs} revisions.
+				
+				tr
+					th(rowspan=number+1)
+						| The top #{number} articles with the lowest number of revisions and 
+						| their number of revisions are:	
+				each val in LowestRevResult
+					tr
+						td #{val._id} with #{val.countRivs} revisions.
+				
+				tr
+					th(rowspan=number+1) The top #{number} articles with the largest group of users and the numbers are:
+					
+				each val in LargestGroupResult
+					tr
+						td #{val._id} with #{Math.round(val.count)} users.
+				
+				tr
+					th(rowspan=number+1) The top #{number} articles with the smallest group of users and the numbers are:
+					
+				each val in SmallestGroupResult
+					tr
+						td #{val._id} with #{Math.round(val.count)} users.
+				
+				tr
+					th(rowspan=number+1) The top #{number} articles with the longest history and their age (in days):
+					
+				each val in LongestHistoryResult
+					tr
+						td #{val._id} with age of #{Math.round(val.age)} days.
+				tr
+					th(rowspan=number+1) The top #{number} articles with the shortest history and their age (in days):
+					
+				each val in ShortestHistoryResult
+					tr
+						td #{val._id} with age of #{Math.round(val.age)} days.
+				
+				
+		
+

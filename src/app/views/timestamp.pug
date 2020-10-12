@@ -1,0 +1,24 @@
+doctype html
+
+html(lang="en")
+head
+	title  Timestamp
+
+	link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity
+		|="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+	
+body
+	div(class='container')
+		div(class="row mb-1")
+			div(class="col-md-7")
+			
+				table(class="table table-bordered table-hover table-sm")
+					thead(class="thead-dark")
+						tr
+							th Revision times
+			
+					tbody
+						each item in times
+							tr
+								td=item._id
+

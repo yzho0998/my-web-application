@@ -1,0 +1,50 @@
+doctype html
+
+html(lang="en")
+head
+	title Individual Article Analytics
+	script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+	script(src="https://www.gstatic.com/charts/loader.js")
+	link(rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+	
+	script(src="http://code.jquery.com/ui/1.11.4/jquery-ui.js")
+	script(src="/js/individual.js")
+body
+	
+	h2 how many #{revision.length}
+	
+	
+	label(for="articles") Choose an article:
+	select#articles
+		
+		each item in revision
+			option(id=item._id,value=item._id+","+item.numOfEdits)= item._id + "(" + item.numOfEdits + ")"
+		
+	
+	div#yearFilter
+		input#yearFrom(type="search", placeholder="From Year")
+		input#yearTo(type="search", placeholder="To Year")
+		button#filter(type='button') Filter
+	
+	div#ttable
+		a( id='inforTable') Information Table
+		br
+		a( id='pie') Pie Chart
+		br
+		a( id='bar1') Bar Chart 1
+		br
+		a(id='bar2') Bar Chart 2
+	
+	div#information
+	
+	
+	
+	h2 Author Analytics
+	input#authorName(type="search", placeholder="Author Name")
+	button#searchAuthor(type='button') Search
+	
+	div#authorInfo
+	
+	div#showTimestamps
+	
+	

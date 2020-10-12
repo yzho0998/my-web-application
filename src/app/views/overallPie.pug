@@ -1,0 +1,16 @@
+doctype html
+
+html(lang="en")
+head
+	title Overall Table
+	
+body
+	div
+		textarea#PieInfo(rows="10", cols="30",readonly)
+			| The graph shows the revision number distribution by user type,
+			| in which #{userNum} number of users are taken into consideration for this analysis.
+			| From the pie chart, it is clear that the revisions were made mostly by #{1_type}
+			| users that cover for #{1_per} percent, followed by #{2_type} users with #{2_per} percent.
+			| The {#3_type} users stands at #{3_per} percent, which is larger than  revisions
+			| made by {#4_type} users (#{4_per} percent). 
+	div#pie
